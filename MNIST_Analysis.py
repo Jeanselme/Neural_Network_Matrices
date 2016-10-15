@@ -18,15 +18,15 @@ def test(network, images, targets):
 
 def analysis(layers, learningRate, batchSize, iteration, probabilistic):
 	print("Download")
-	fileNames= ["train-labels-idx1-ubyte", "train-images-idx3-ubyte",
-		"t10k-labels-idx1-ubyte", "t10k-images-idx3-ubyte"]
+	fileNames= ["train-labels-idx1-ubyte.gz", "train-images-idx3-ubyte.gz",
+		"t10k-labels-idx1-ubyte.gz", "t10k-images-idx3-ubyte.gz"]
 	for fileName in fileNames:
 		Extraction.downloadDecompress("http://yann.lecun.com/exdb/mnist/",
 			fileName, "Data/")
 
 	print("Start extraction")
-	training_labels, training_images = Extraction.extractImagesLabels("Data/train-labels-idx1-ubyte", "Data/train-images-idx3-ubyte")
-	testing_labels, testing_images = Extraction.extractImagesLabels("Data/t10k-labels-idx1-ubyte", "Data/t10k-images-idx3-ubyte")
+	training_labels, training_images = Extraction.extractImagesLabels("Data/train-labels-idx1-ubyte.gz", "Data/train-images-idx3-ubyte.gz")
+	testing_labels, testing_images = Extraction.extractImagesLabels("Data/t10k-labels-idx1-ubyte.gz", "Data/t10k-images-idx3-ubyte.gz")
 
 	net = Network.NeuralNetwork(layers)
 
