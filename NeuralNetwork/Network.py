@@ -5,8 +5,8 @@
 """
 
 import numpy as np
-from Activation import fSigmoid as fActivation, dSigmoid as dActivation
-from Cost import dQuadratic as dCost
+from NeuralNetwork.Activation import fSigmoid as fActivation, dSigmoid as dActivation
+from NeuralNetwork.Cost import fQuadratic as fCost, dQuadratic as dCost
 
 class NeuralNetwork:
 	"""
@@ -44,8 +44,13 @@ class NeuralNetwork:
 		Computes the backpropagation of the gradient in order to reduce the
 		quadratic error
 		"""
+		error, pastError = 0, 0
 		for iteration in range(maxIteration):
-			print("{} / {}".format(iteration+1, maxIteration), end = '\r')
+			# Decrease the learningRate
+			if error > pastError :
+				learningRate /= 2
+			pastError = error
+
 			# Changes order of the dataset
 			if probabilistic :
 				permut = np.random.permutation(len(targets))
@@ -59,17 +64,20 @@ class NeuralNetwork:
 
 				# Computes the difference for each batch
 				for i in range(batch*batchSize,(batch+1)*batchSize):
-					diffWeight, diffBias = self.computeDiff(inputs[i], targets[i])
+					diffWeight, diffBias, diffError = self.computeDiff(inputs[i], targets[i])
 					totalDiffWeight = [totalDiffWeight[i] + diffWeight[i]
 										for i in range(len(totalDiffWeight))]
 					totalDiffBias = [totalDiffBias[i] + diffBias[i]
 										for i in range(len(totalDiffBias))]
+					error += diffError
 
 				# Update weights and biases of each neuron
 				self.weights = [self.weights[i] - learningRate*totalDiffWeight[i]
 									for i in range(len(totalDiffWeight))]
 				self.biases = [self.biases[i] - learningRate*totalDiffBias[i]
 									for i in range(len(totalDiffBias))]
+			print("{} / {}".format(iteration+1, maxIteration), end = '\r')
+		print("\nBackPropagation done !")
 
 	def computeDiff(self, input, target):
 		"""
@@ -91,6 +99,7 @@ class NeuralNetwork:
 			layerAct.append(lastRes)
 
 		# Backward
+		diffError = sum(fCost(lastRes, target))
 		delta = dCost(lastRes, target) * dActivation(lastRes)
 		diffBias[-1] = delta
 		diffWeight[-1] = np.dot(delta, layerAct[-2].transpose())
@@ -100,4 +109,4 @@ class NeuralNetwork:
 			diffBias[layer] = delta
 			diffWeight[layer] = np.dot(delta, layerAct[layer-1].transpose())
 
-		return diffWeight, diffBias
+		return diffWeight, diffBias, diffError

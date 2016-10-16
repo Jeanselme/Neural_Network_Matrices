@@ -13,7 +13,7 @@ import numpy as np
 
 def extractImagesLabels(labelsFileName, imagesFileName, normalization = True):
 	"""
-	Functions which creates list of images and labels by extracting the content
+	Functions which creates matrices of images and labels by extracting the content
 	of the given files
 	"""
 	imagesFile = gzip.open(imagesFileName,"rb")

@@ -4,6 +4,11 @@ Neural network with backpropagation
 ## BackPropagation
 This neural network is based on the book : http://neuralnetworksanddeeplearning.com/
 
+## Execution
+```
+python3.5 MNIST_Analysis.py
+```
+
 ## Results
 
 ## Libraries
