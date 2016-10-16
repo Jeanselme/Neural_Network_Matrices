@@ -23,6 +23,7 @@ class NeuralNetwork:
 		self.layersNumber = len(dims) - 1
 		self.weights = []
 		self.biases = []
+		np.random.seed(42)
 		for d in range(self.layersNumber):
 			self.weights.append(np.random.randn(dims[d+1], dims[d]))
 			self.biases.append(np.random.randn(dims[d+1], 1))
@@ -47,7 +48,7 @@ class NeuralNetwork:
 		error, pastError = 0, 0
 		for iteration in range(maxIteration):
 			# Decrease the learningRate
-			if error > pastError :
+			if iteration > 1 and error > pastError :
 				learningRate /= 2
 			pastError = error
 
@@ -65,10 +66,10 @@ class NeuralNetwork:
 				# Computes the difference for each batch
 				for i in range(batch*batchSize,(batch+1)*batchSize):
 					diffWeight, diffBias, diffError = self.computeDiff(inputs[i], targets[i])
-					totalDiffWeight = [totalDiffWeight[i] + diffWeight[i]
-										for i in range(len(totalDiffWeight))]
-					totalDiffBias = [totalDiffBias[i] + diffBias[i]
-										for i in range(len(totalDiffBias))]
+					totalDiffWeight = [totalDiffWeight[j] + diffWeight[j]
+										for j in range(len(totalDiffWeight))]
+					totalDiffBias = [totalDiffBias[j] + diffBias[j]
+										for j in range(len(totalDiffBias))]
 					error += diffError
 
 				# Update weights and biases of each neuron
@@ -103,10 +104,10 @@ class NeuralNetwork:
 		delta = dCost(lastRes, target) * dActivation(lastRes)
 		diffBias[-1] = delta
 		diffWeight[-1] = np.dot(delta, layerAct[-2].transpose())
-		for layer in reversed(range(1, self.layersNumber-1)):
+		for layer in reversed(range(self.layersNumber-1)):
 			delta = np.dot(self.weights[layer+1].transpose(), delta) *\
 				dActivation(layerSum[layer])
 			diffBias[layer] = delta
-			diffWeight[layer] = np.dot(delta, layerAct[layer-1].transpose())
+			diffWeight[layer] = np.dot(delta, layerAct[layer].transpose())
 
 		return diffWeight, diffBias, diffError

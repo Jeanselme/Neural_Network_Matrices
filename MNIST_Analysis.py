@@ -49,6 +49,16 @@ def analysis(layers, learningRate, batchSize, iteration, probabilistic,
 
 if __name__ == '__main__':
 	training_labels, training_images, testing_labels, testing_images = dataExtraction()
+
+	# Probabilistic
+	analysis([784,25,10],0.001,10,10,True, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.005,10,10,True, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.01,10,10,True, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.05,10,10,True, training_labels, training_images,
+		testing_labels, testing_images)
 	analysis([784,25,10],0.1,10,10,True, training_labels, training_images,
 		testing_labels, testing_images)
 	analysis([784,25,10],0.5,10,10,True, training_labels, training_images,
@@ -72,4 +82,68 @@ if __name__ == '__main__':
 	analysis([784,25,10],5,10,10,True, training_labels, training_images,
 		testing_labels, testing_images)
 	analysis([784,25,10],5.5,10,10,True, training_labels, training_images,
+		testing_labels, testing_images)
+
+	# Non probabilistic
+	analysis([784,25,10],0.001,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.005,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.01,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.05,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.1,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.5,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],1,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],1.5,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],2,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],2.5,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],3,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],3.5,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],4,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],4.5,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],5,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],5.5,10,10,False, training_labels, training_images,
+		testing_labels, testing_images)
+
+	# Iteration
+	analysis([784,25,10],0.01,10,10,True, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.01,10,20,True, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.01,10,30,True, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.01,10,40,True, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.01,10,50,True, training_labels, training_images,
+		testing_labels, testing_images)
+
+	# Batch size
+	analysis([784,25,10],0.01,10,10,True, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.01,50,10,True, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,25,10],0.01,100,10,True, training_labels, training_images,
+		testing_labels, testing_images)
+
+	# Deep
+	analysis([784,25,10],0.01,10,10,True, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,100,50,10],0.01,10,10,True, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,100,25,10],0.01,10,10,True, training_labels, training_images,
+		testing_labels, testing_images)
+	analysis([784,200,10],0.01,10,10,True, training_labels, training_images,
 		testing_labels, testing_images)
