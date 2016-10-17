@@ -15,7 +15,7 @@ def dSigmoid(x):
 def fSigUpd(x):
 	return 1.7159 * np.tanh(2. / 3. * x)
 
-def sSigUpd(x):
+def dSigUpd(x):
 	return 1.7159 * 2. / 3. * (1. - np.tanh(2. / 3. * x)**2)
 
 def fRectifier(x):
