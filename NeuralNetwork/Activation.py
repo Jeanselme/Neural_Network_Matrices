@@ -12,6 +12,9 @@ def fSigmoid(x):
 def dSigmoid(x):
 	return fSigmoid(x) * (1. - fSigmoid(x))
 
+def iSigmoid(x):
+	return -np.log(1/x - 1)
+
 def fSigUpd(x):
 	return 1.7159 * np.tanh(2. / 3. * x)
 

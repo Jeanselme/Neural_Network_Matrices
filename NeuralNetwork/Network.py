@@ -5,7 +5,7 @@
 """
 
 import numpy as np
-from NeuralNetwork.Activation import fSigmoid as fActivation, dSigmoid as dActivation
+from NeuralNetwork.Activation import fSigmoid as fActivation, dSigmoid as dActivation, iSigmoid as iActivation
 from NeuralNetwork.Cost import fQuadratic as fCost, dQuadratic as dCost
 
 class NeuralNetwork:
@@ -37,6 +37,18 @@ class NeuralNetwork:
 			weight = self.weights[layer]
 			bias = self.biases[layer]
 			res = fActivation(np.dot(weight, res) + bias)
+		return res
+
+	def reverseCompute(self, outputs):
+		"""
+		Reverse computing
+		"""
+		res = outputs
+		for layer in reversed(range(self.layersNumber)):
+			weight = self.weights[layer]
+			bias = self.biases[layer]
+			# TODO : ensure that the resolution implies that res in ]0,1[
+			res = np.dot(np.linalg.pinv(weight),iActivation(res)-bias)
 		return res
 
 	def backpropagation(self, inputs, targets, learningRate, batchSize,
