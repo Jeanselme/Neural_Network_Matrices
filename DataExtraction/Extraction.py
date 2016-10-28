@@ -30,7 +30,7 @@ def extractImagesLabels(labelsFileName, imagesFileName, normalization = True):
 			label = np.zeros((10, 1))
 			label[int.from_bytes(labelsFile.read(1),byteorder='big')] = 1.0
 			if normalization:
-				img = np.array([(int.from_bytes(imagesFile.read(1),byteorder='big'))/256 - 0.5
+				img = np.array([(int.from_bytes(imagesFile.read(1),byteorder='big'))/255
 					for i in range(height * width)])
 			else:
 				img = np.array([(int.from_bytes(imagesFile.read(1),byteorder='big'))

@@ -5,6 +5,7 @@
 """
 
 import numpy as np
+import scipy.optimize as optimize
 from NeuralNetwork.Activation import fSigmoid as fActivation, dSigmoid as dActivation, iSigmoid as iActivation
 from NeuralNetwork.Cost import fQuadratic as fCost, dQuadratic as dCost
 
@@ -47,8 +48,16 @@ class NeuralNetwork:
 		for layer in reversed(range(self.layersNumber)):
 			weight = self.weights[layer]
 			bias = self.biases[layer]
-			# TODO : ensure that the resolution implies that res in ]0,1[
-			res = np.dot(np.linalg.pinv(weight),iActivation(res)-bias)
+			res = res.reshape(bias.shape)
+			# Simple solve
+			resUnconstrained = np.dot(np.linalg.pinv(weight),iActivation(res)-bias)
+			# Constraints
+			def f(x):
+				x = np.array(x).reshape(resUnconstrained.shape)
+				y = np.dot(weight, x) - iActivation(res)  + bias
+				return np.dot(y.transpose(), y)
+			bnds = [(0.00000000000001,0.99999999999999)]*resUnconstrained.shape[0]
+			res = np.array(optimize.minimize(f, resUnconstrained, bounds=bnds).x)
 		return res
 
 	def backpropagation(self, inputs, targets, learningRate, batchSize,

@@ -28,5 +28,8 @@ The increase is obvious, however we observe that it is an augmentation of the di
 It could be interpreted as an overftting on the trainingset. However it would be neccesary to compute other neural network whith different random weights (because we seed a random value in order to have meaningful comparsion).
 ![ResultOccurences](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/Recognition-Occurences.png)
 
+When we reverse the computing process in order to observe the "perfect input", we observe the following images :  
+![ResultNumbers](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/Numbers.png)
+
 ## Libraries
 Needs scipy.mnist, struct, urllib.request, io, gzip, numpy and os. Executed with python3.5

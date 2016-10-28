@@ -51,7 +51,7 @@ def analysis(layers, learningRate, batchSize, iteration, probabilistic,
 	return net
 
 def computeImage(net, target, imageFile, x = 28, y = 28):
-	image = net.reverseCompute(target.reshape((10,1))).reshape(x,y)
+	image = net.reverseCompute(target).reshape(x,y)
 	# Reverse extraction phasis
 	image = image* 255
 	scipy.misc.imsave(imageFile, image)

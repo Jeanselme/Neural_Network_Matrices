@@ -12,17 +12,19 @@ if __name__ == '__main__':
 
 	# Probabilistic
 	net = mnist.analysis([784,25,10],0.01,10,10,True,trainL,trainI,testL,testI)
+	minZero = 0.00000000000001
+	maxOne = 0.9999999999999
 
-	zero = np.array([0.99,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01])
-	one = np.array([0.01,0.99,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01])
-	two = np.array([0.01,0.01,0.99,0.01,0.01,0.01,0.01,0.01,0.01,0.01])
-	three = np.array([0.01,0.01,0.01,0.99,0.01,0.01,0.01,0.01,0.01,0.01])
-	four = np.array([0.01,0.01,0.01,0.01,0.99,0.01,0.01,0.01,0.01,0.01])
-	five = np.array([0.01,0.01,0.01,0.01,0.01,0.99,0.01,0.01,0.01,0.01])
-	six = np.array([0.01,0.01,0.01,0.01,0.01,0.01,0.99,0.01,0.01,0.01])
-	seven = np.array([0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.99,0.01,0.01])
-	eight = np.array([0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.99,0.01])
-	nine = np.array([0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.99])
+	zero = np.array([maxOne,minZero,minZero,minZero,minZero,minZero,minZero,minZero,minZero,minZero])
+	one = np.array([minZero,maxOne,minZero,minZero,minZero,minZero,minZero,minZero,minZero,minZero])
+	two = np.array([minZero,minZero,maxOne,minZero,minZero,minZero,minZero,minZero,minZero,minZero])
+	three = np.array([minZero,minZero,minZero,maxOne,minZero,minZero,minZero,minZero,minZero,minZero])
+	four = np.array([minZero,minZero,minZero,minZero,maxOne,minZero,minZero,minZero,minZero,minZero])
+	five = np.array([minZero,minZero,minZero,minZero,minZero,maxOne,minZero,minZero,minZero,minZero])
+	six = np.array([minZero,minZero,minZero,minZero,minZero,minZero,maxOne,minZero,minZero,minZero])
+	seven = np.array([minZero,minZero,minZero,minZero,minZero,minZero,minZero,maxOne,minZero,minZero])
+	eight = np.array([minZero,minZero,minZero,minZero,minZero,minZero,minZero,minZero,maxOne,minZero])
+	nine = np.array([minZero,minZero,minZero,minZero,minZero,minZero,minZero,minZero,minZero,maxOne])
 	mnist.computeImage(net, zero, "Images/0.zero.png")
 	mnist.computeImage(net, one, "Images/1.one.png")
 	mnist.computeImage(net, two, "Images/2.two.png")
