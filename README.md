@@ -11,6 +11,11 @@ python3.5 Networks.py
 This script executes the training of several different neural networks in order to evaluate performances.  
 
 ```
+python3.5 SemiAutoEncoder.py
+```
+It computes thanks an encoder thanks to the output of a first neuralNetwork and test to draw new images.  
+
+```
 python3.5 Numbers.py
 ```
 This one creates the perfect numbers for the network given a specific output.
@@ -30,6 +35,9 @@ It could be interpreted as an overftting on the trainingset. However it would be
 
 When we reverse the computing process in order to observe the "perfect input", we observe the following images :  
 ![ResultNumbers](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/Numbers.png)
+
+We observe different results with the semi autoencoder (I say semi because it is a two phases supervised learning and not an unsupervides one).  
+![ResultNumbersAutoEncoder](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/NumbersSAE.png)
 
 ## Libraries
 Needs scipy.mnist, struct, urllib.request, io, gzip, numpy and os. Executed with python3.5
