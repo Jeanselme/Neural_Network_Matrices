@@ -74,7 +74,6 @@ def computeReverseImage(net, target, imageFile, x = 28, y = 28):
 	scipy.misc.imsave(imageFile, image)
 
 def computeImage(net, input, imageFile, x = 28, y = 28):
-	print(net.compute(input).shape)
 	image = net.compute(input).reshape(x,y)
 	# Reverse extraction phasis
 	image = image* 255
