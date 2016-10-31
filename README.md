@@ -20,7 +20,6 @@ python3.5 Numbers.py
 ```
 This one creates the perfect numbers for the network given a specific output.
 
-
 ## Results
 The following graph shows the recognition rate for a neural network of 25 hidden neurons, after ten iterations of the backpropagation with a batch of ten images.  
 ![ResultLearningRate](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/Recognition-LearningRate.png)
@@ -38,6 +37,8 @@ When we reverse the computing process in order to observe the "perfect input", w
 
 We observe different results with the semi autoencoder (I say semi because it is a two phases supervised learning and not an unsupervided one).  
 ![ResultNumbersAutoEncoder](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/NumbersSAE.png)
+The implemented neural network is the combinaison of two simple neural networks with backpropagation as follows :
+![ResultNumbersAutoEncoder](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/SAE.png)
 
 ## Libraries
 Needs scipy.mnist, struct, urllib.request, io, gzip, numpy and os. Executed with python3.5
