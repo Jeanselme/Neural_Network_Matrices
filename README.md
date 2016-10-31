@@ -36,7 +36,7 @@ It could be interpreted as an overftting on the trainingset. However it would be
 When we reverse the computing process in order to observe the "perfect input", we observe the following images :  
 ![ResultNumbers](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/Numbers.png)
 
-We observe different results with the semi autoencoder (I say semi because it is a two phases supervised learning and not an unsupervides one).  
+We observe different results with the semi autoencoder (I say semi because it is a two phases supervised learning and not an unsupervided one).  
 ![ResultNumbersAutoEncoder](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/NumbersSAE.png)
 
 ## Libraries
