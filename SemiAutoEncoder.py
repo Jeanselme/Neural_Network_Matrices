@@ -22,5 +22,5 @@ if __name__ == '__main__':
 	mnist.computeImage(encoder, mnist.eight, "Images/e8.eight.png")
 	mnist.computeImage(encoder, mnist.nine, "Images/e9.nine.png")
 
-	mnist.computeImage(encoder, mnist.nine + mnist.two, "Images/e92.png")
-	mnist.computeImage(encoder, mnist.five + mnist.three, "Images/e53.png")
+	mnist.computeImage(encoder, (mnist.nine + mnist.two)/2., "Images/e92.png")
+	mnist.computeImage(encoder, (mnist.five + mnist.three)/2., "Images/e53.png")

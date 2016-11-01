@@ -29,15 +29,16 @@ Moreover, we notice that for high learning rates, the non probabilistic is worri
 
 We observe the tendance of the recognition rate in function of the iterations of the backpropagation.  
 The increase is obvious, however we observe that it is an augmentation of the difference between the testing set and the training one.
-It could be interpreted as an overftting on the trainingset. However it would be neccesary to compute other neural network whith different random weights (because we seed a random value in order to have meaningful comparsion).
+It could be interpreted as an overftting on the trainingset. However it would be neccesary to compute other neural network whith different random weights (because we seed a random value in order to have meaningful comparsion).  
 ![ResultOccurences](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/Recognition-Occurences.png)
 
 When we reverse the computing process in order to observe the "perfect input", we observe the following images :  
 ![ResultNumbers](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/Numbers.png)
 
 We observe different results with the semi autoencoder (I say semi because it is a two phases supervised learning and not an unsupervided one).  
-![ResultNumbersAutoEncoder](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/NumbersSAE.png)
-The implemented neural network is the combinaison of two simple neural networks with backpropagation as follows :
+![ResultNumbersAutoEncoder](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/NumbersSAE.png)  
+
+The implemented neural network is the combinaison of two simple neural networks with backpropagation as follows :  
 ![ResultNumbersAutoEncoder](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/SAE.png)
 
 ## Libraries
