@@ -8,6 +8,7 @@ import os
 import sys
 import numpy as np
 import scipy.misc
+import NeuralNetwork.Save as save
 import NeuralNetwork.Network as Network
 import DataExtraction.Extraction as Extraction
 
@@ -50,7 +51,8 @@ def dataExtraction():
 	return training_labels, training_images, testing_labels, testing_images
 
 def analysis(layers, learningRate, batchSize, iteration, probabilistic,
-	training_labels, training_images, testing_labels, testing_images):
+	training_labels, training_images, testing_labels, testing_images,
+	saveName = "LastNN.pkl"):
 	print("\n" + str(layers) + " - Batch {} - Rate {} - Probabilitic {}".format(
 		batchSize, learningRate, probabilistic))
 	net = Network.NeuralNetwork(layers)
@@ -64,6 +66,8 @@ def analysis(layers, learningRate, batchSize, iteration, probabilistic,
 	print("Test")
 	print("On the training set : {} / {}".format(numberTrain, len(training_labels)))
 	print("On the testing set : {} / {}".format(numberTest, len(testing_labels)))
+
+	save.save(net, saveName)
 
 	return net, outputTrain, outputTest
 
