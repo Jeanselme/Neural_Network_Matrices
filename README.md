@@ -34,9 +34,13 @@ It could be interpreted as an overftting on the trainingset. However it would be
 
 When we reverse the computing process in order to observe the "perfect input", we observe the following images :  
 ![ResultNumbers](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/Numbers.png)
+It is possible to see a kind of number, however that remains hard for numbers upper than 3.
 
 We observe different results with the semi autoencoder (I say semi because it is a two phases supervised learning and not an unsupervided one).  
 ![ResultNumbersAutoEncoder](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/NumbersSAE.png)  
+These results are really more interesting, but they are closed to :  
+ ![Averages](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/Averages.png)
+ Which are the averaged pictures.
 
 The implemented neural network is the combinaison of two simple neural networks with backpropagation as follows :  
 ![ResultNumbersAutoEncoder](https://raw.githubusercontent.com/Jeanselme/Neural_Network_Matrices/master/Images/SAE.png)
